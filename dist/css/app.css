@@ -372,6 +372,34 @@ body > section {
 .header {
   background-color: #4cb8b3;
 }
+@media (min-width: 480px) {
+  .header {
+    color: #ffffff;
+    width: 10px;
+    height: 1px;
+  }
+}
+@media (min-width: 768px) {
+  .header {
+    color: #ffffff;
+    width: 10px;
+    height: 1px;
+  }
+}
+@media (min-width: 1200px) {
+  .header {
+    color: #ffffff;
+    width: 10px;
+    height: 1px;
+  }
+}
+@media (min-width: 1400px) {
+  .header {
+    color: #ffffff;
+    width: 10px;
+    height: 1px;
+  }
+}
 .header h1 {
   color: #ffffff;
   font-size: 4rem;
@@ -397,4 +425,16 @@ body > section {
 }
 .navegacion-principal a:hover {
   color: #fdda00;
+}
+
+.header-contenedor {
+  width: 95%;
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+.nav-contenedor {
+  width: 95%;
+  max-width: 120rem;
+  margin: 0 auto;
 }
