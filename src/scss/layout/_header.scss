@@ -4,50 +4,37 @@
 .header{
 
     background-color: v.$verde;
-    @include m.telefono{
-        color: v.$blanco;
-        width: 10px;
-        height: 1px;
-    };
-
-    @include m.tablets{
-        color: v.$blanco;
-        width: 10px;
-        height: 1px;
-    };
-
-    @include m.desktops{
-        color: v.$blanco;
-        width: 10px;
-        height: 1px;
-    };
-
-    @include m.desktopsXL{
-        color: v.$blanco;
-        width: 10px;
-        height: 1px;
-    };
-
-    h1{
-        color: v.$blanco;
-        font-size: 4rem;
-        margin: 0;
-    }
 
     .contenido-header{
         padding: 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include m.telefono{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
     }
+    
+    h1{
+        color: v.$blanco;
+        text-align: center;
+        @include m.tablets{
+            text-align: left;
+            margin: 0;
+        }
+    }
+
 }
 
 .navegacion-principal{
     background-color: v.$verde;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 1rem;
-
+    @include m.tablets{
+        flex-direction: row;
+        justify-content: space-between;
+    }
     a{
         color: v.$blanco;
         font-size: 2.4rem;
