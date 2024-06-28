@@ -432,7 +432,7 @@ body > section {
   min-height: 50rem;
   max-height: 70rem;
   overflow: hidden;
-  height: 50 rem;
+  height: 50rem;
 }
 .video .overlay {
   position: absolute;
@@ -467,4 +467,25 @@ body > section {
   font-size: 2.4rem;
   font-weight: 700;
   padding: 0;
+}
+
+.sobre-festival {
+  width: 95%;
+  max-width: 120rem;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .sobre-festival {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+  }
+}
+
+.contenido-festival h2 {
+  margin-top: 2rem;
+}
+.contenido-festival .fecha {
+  color: #4cb8b3;
+  font-size: 1.8rem;
 }
