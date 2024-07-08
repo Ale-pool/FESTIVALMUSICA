@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', function(){
+    navegacionFija();
     crearGaleria();
 })
+
+function navegacionFija(){
+    
+}
 
 function crearGaleria(){
     const cantimagenes = 16;
@@ -29,9 +34,19 @@ function crearGaleria(){
         modal.onclick = cerrarmodal
         modal.appendChild(imagen)
 
+        //Boton- salir de la imagen
+        const botonCerrar = document.createElement('BUTTON')
+        botonCerrar.textContent = 'X'
+        botonCerrar.classList.add('btn-cerrar')
+        botonCerrar.onclick = cerrarmodal
+        
+        modal.appendChild(botonCerrar)
+
+
         // agg al body
 
         const body = document.querySelector('body')
+        body.classList.add('overflow-hidden')
         body.appendChild(modal)
     }
 }
@@ -39,8 +54,18 @@ function crearGaleria(){
 
  function cerrarmodal(){
     const modal = document.querySelector('.modal')
-    modal?.remove()
+    modal.classList.add('fade-Out')
+    setTimeout(() => {
+        modal.remove()
+        const body = document.querySelector('body')
+        body.classList.remove('overflow-hidden')
+    }, 500);
+    
  }
+
+
+
+
 // function cerrarmodal(i){
 //     if(i.target.classList.contains('modal')){
 //         i.target.remove()
