@@ -1,10 +1,21 @@
 document.addEventListener('DOMContentLoaded', function(){
     navegacionFija();
     crearGaleria();
+    resaltarEnlace();
+    scrollNav();
 })
 
 function navegacionFija(){
-    
+    const header = document.querySelector('.header')
+    const sobreFestival = document.querySelector('.sobre-festival')
+
+    document.addEventListener('scroll', function(){
+        if(sobreFestival.getBoundingClientRect().bottom < 1){
+            header.classList.add('fixed')
+        }else{
+            header.classList.remove('fixed')   
+        }
+    })
 }
 
 function crearGaleria(){
@@ -63,6 +74,58 @@ function crearGaleria(){
     
  }
 
+function resaltarEnlace(){
+    document.addEventListener('scroll', function(){
+        const sections = document.querySelectorAll('section')
+        const navlinks = document.querySelectorAll('.navegacion-principal a')
+        let actual = '';
+        sections.forEach(section =>{
+            const sectionTop = section.offsetTop
+            const sectionHeight = section.clientHeight
+            if(window.scrollY >= sectionTop - sectionHeight/3){
+                actual = section.id
+            }
+        })
+        
+       navlinks.forEach(link =>{
+            if(link.getAttribute('href') === '#' + actual) {
+                link.classList.add('active');
+            }else{
+                link.classList.remove('active');
+            }
+       });
+
+})
+}
+
+function scrollNav(){
+    const links = document.querySelectorAll('.navegacion-principal a')
+    links.forEach(link =>{
+        link.addEventListener('click', function(e){
+            e.preventDefault()
+            const sectionscroll = e.target.getAttribute('href')
+            const section = document.querySelector(sectionscroll)
+            section.scrollIntoView({behavior: 'smooth'})
+        })
+    })
+
+}
+
+
+
+
+    // const links = document.querySelectorAll('.navegacion-principal a')
+    // links.forEach(link =>{
+    //     link.addEventListener('click', function(e){ // e es el evento, cuando se precciona el link
+    //         e.preventDefault()
+    //         const sectionscroll = e.target.getAttribute('href')
+    //         const section = document.querySelector(sectionscroll)  // evita que se ejecute el evento por defecto
+    //         // const seccion = document.querySelector(e.target.getAttribute('href'))
+    //         section.scrollIntoView({
+    //             behavior: 'smooth'
+    //         })
+    //     })
+    // })
 
 
 
